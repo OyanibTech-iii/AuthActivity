@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Welcome{% endblock %}
+
+{% block body %}
+  <div style="text-align:center; margin-top:100px;">
+    <h1>Welcome to the Site</h1>
+
+    {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
+      <p>You are not logged in.</p>
+      <a href="{{ path('app_dashboard') }}"
+         style="display:inline-block; padding:10px 20px; background:#007bff; color:white; text-decoration:none; border-radius:5px;">
+        Proceed to Dashboard
+      </a>
+    {% else %}
+      <p>You are already logged in.</p>
+      <a href="{{ path('app_dashboard') }}">Go to Dashboard</a>
+    {% endif %}
+  </div>
+{% endblock %}
